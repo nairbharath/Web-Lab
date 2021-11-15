@@ -1,0 +1,306 @@
+<html>
+<head>
+<style>
+
+table,tr,th{
+border: 0.5px solid black;
+width: 100%;
+border-collapse: collapse;
+
+}
+
+div{
+text-align:center;
+}
+
+h1{
+text-align:center; border:0.5px solid black;
+}
+
+p,ul,ol{
+font-size:20px;
+font-family: Arial;}
+
+</style>
+</head>
+<body style="margin:50px;">
+<title> Web Programming </title>
+<h1 style="text-align:center;"> Web Programming : Web Servers </h1>
+
+<table style="text align:center;" >
+	<tr><th><a href="#intro">Introduction To Web: Client/Server Concepts</a></th></tr>
+	<tr><th><a href="#comp">Components of Web Application</a></th></tr>
+	<tr><th><a href="#types">Types of web content</a></th></tr>
+	<tr><th><a href="#req-res">Overview of HTTP request – response</a></th></tr>
+	<tr><th><a href="#dynamic"> Generation of dynamic web pages</a></th></tr>
+	<tr><th><a href="#appserver">Application Servers</a></th></tr>
+	<tr><th><a href="#websec">Web Security</a></th></tr>
+	
+</table>
+
+<h1 id="intro">Introduction To Web: Client/Server Concepts</h1>
+
+<p>
+Web server is a computer where the web content is stored. <br>
+Basically web server is used to host the web sites but there exists other web servers also such as gaming, storage, FTP, email etc.<br>
+Web site is collection of web pages while web server is a software that respond to the request for web resources.<br>
+The client-server model, or client-server architecture, is a distributed application framework dividing tasks between servers and clients, which either reside in the same system or communicate through a computer network or the Internet.<br>
+The client relies on sending a request to another program in order to access a service made available by a server.<br>
+The server runs one or more programs that share resources with and distribute work among clients.<br>
+</p>
+
+<div>
+<img src ="https://www.tutorialspoint.com/internet_technologies/images/internet-web_server_working.jpg"><br>
+</div>
+
+<h1 id="comp">Components of Web application</h1>
+
+<p>
+Any web application, big or small, contains these major components:<br><br>
+
+1)View Layer:- When you consider an MVC application, the View layer component gives an interface to the application. <br>
+Regardless if it is for users with a browser or for another application using Web services. <br>
+View layer is the bridge for getting the data in and out of the application.<br>
+
+It does not have business logic, like calculating interest for a banking application or storing items in a shopping cart for an online catalog.<br>
+ It also does not contain any code for existing data or retrieving data from a data source.<br>
+ Business logic is managed by the Model layer. The view layer is more focused on the interface.<br><br>
+
+2)Business Layer:- It is also known as Business Logic or Domain Logic or Application Layer.<br>
+ The function of the business layer is to accept user requests from the browser, process them, and determine the routes through which the data will be accessed.<br>
+ The workflows by which the data and requests travel through the back end lay encoded in a business layer.<br><br>
+
+3)Data Access Layer:- This layer is built to keep the code you use to pull data from your data store like database, flat files, or web services separate from business logic and presentation code.<br>
+So even if you have to change data stores, you don’t end up rewriting the whole thing.<br>
+There are many ORM frameworks that are blending the DAL with other layers which makes development easy during web application development services.<br><br>
+
+4)Error handling, security, logging:- When you build a web application, people generally tend to focus on the end-goal, building, and testing only for situations when things go right.<br>
+ Alas! things rarely go right all the time in the real world.<br>
+This is where error handling is a vital part of any application’s user experience.<br>
+ And, if it is done well, it can leave your users feeling informed and properly considered.<br><br>
+ 
+ 
+<strong>Web application architecture Components are:</strong><br>
+<ul>
+
+	<li><strong>UI/UX Component:</strong> Dashboards, logs,settings,statistics, notifications, etc.</li>
+	<li><strong>Structural Components:</strong> Two types are:</li>
+	<ol>
+		<li><strong>Client Component:</strong> Developed in HTML,CS,JS.Exists in User web browser.</li>
+		<li><strong>Server Component:</strong>Combination of several programming languages and frameworks, including Java, .Net, NodeJS, PHP, Python, and Ruby on Rails. </li>
+	</ol>
+</ul>
+
+</p>
+
+<h1 id="types">Types of Web Content</h1>
+<p>
+Web content is the textual, visual, or aural content that is encountered as part of the user experience on websites.<br>
+It may include—among other things—text, images, sounds, videos, and animations.<br>
+
+</p>
+
+
+<h1 id="req-res">Overview of HTTP request – response</h1>
+<p>
+<strong>HTTP Messages</strong><br>
+HTTP messages are how data is exchanged between a server and a client.<br>
+There are two types of messages: requests sent by the client to trigger an action on the server, and responses, the answer from the server.</br>
+HTTP messages are composed of textual information encoded in ASCII, and span over multiple lines.<br>
+Web developers rarely craft these textual HTTP messages themselves: software, a Web browser, proxy, or Web server, perform this action.<br>
+They provide HTTP messages through config files (for proxies or servers), APIs (for browsers), or other interfaces.<br><br>
+HTTP requests, and responses, share similar structure and are composed of:<br>
+
+<ol style="list-style-type:lower-roman;">
+	<li>A start-line describing the requests to be implemented, or its status of whether successful or a failure.</li>
+	<li>This start-line is always a single line.</li>
+	<li>An optional set of HTTP headers specifying the request, or describing the body included in the message.</li>
+	<li>A blank line indicating all meta-information for the request has been sent.</li>
+	<li>An optional body containing data associated with the request (like content of an HTML form), or the document associated with a response. <br>The presence of the body and its size is specified by the start-line and HTTP headers.</li>
+</ol>
+<p>
+The start-line and HTTP headers of the HTTP message are collectively known as the head of the requests, whereas its payload is known as the body.
+</p>
+<div>
+<img src = "https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages/httpmsgstructure2.png" alt="HTTP request-response image not found" ><br>
+</div>
+
+<h2> HTTP Request</h2>
+<p>
+<strong>Start line</strong><br>
+HTTP requests are messages sent by the client to initiate an action on the server.<br>
+Their start-line contain three elements:<br><br>
+<ol>
+	<li>An HTTP method, a verb (like GET, PUT or POST) or a noun (like HEAD or OPTIONS), that describes the action to be performed.</li>
+	<li>The request target, usually a URL</li>
+	<li>The HTTP version-which defines the structure of the remaining message, acting as an indicator of the expected version to use for the response.</li>
+</ol>
+<br><br>
+<p>
+<strong>Headers</strong><br>
+
+HTTP headers from a request follow the same basic structure of an HTTP header:<br>
+a case-insensitive string followed by a colon (':') and a value whose structure depends upon the header.<br>
+The whole header, including the value, consist of one single line, which can be quite long.<br><br>
+
+Many different headers can appear in requests. They can be divided in several groups:
+
+<ul>
+	<li>General headers, like Via, apply to the message as a whole.</li>
+	<li>Request headers, like User-Agent or Accept, modify the request by specifying it further (like Accept-Language), by giving context (like Referer), or by conditionally restricting it (like If-None).</li>
+	<li>Representation headers like Content-Type that describe the original format of the message data and any encoding applied (only present if the message has a body).</li>
+</ul>
+<div>
+	<img src = "https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages/http_request_headers3.png" alt="Headers Post Meessage"><br>
+</div>
+</p>
+<p>
+<strong> Body</strong><br>
+
+The final part of the request is its body.<br>
+Not all requests have one: requests fetching resources, like GET, HEAD, DELETE, or OPTIONS, usually don't need one.<br>
+Some requests send data to the server in order to update it: as often the case with POST requests (containing HTML form data).<br><br>
+
+Bodies can be broadly divided into two categories:<br><br>
+<ul>
+	<li>Single-resource bodies, consisting of one single file, defined by the two headers: Content-Type and Content-Length.</li>
+	<li>Multiple-resource bodies, consisting of a multipart body, each containing a different bit of information. <br>This is typically associated with HTML Forms.</li>
+</ul>
+</p>
+<h2>HTTP Responses</h2>
+<p>
+<strong>Status Line</strong><br>
+The start line of an HTTP response, called the status line, contains the following information:
+<ol>
+	<li>The protocol version, usually HTTP/1.1</li>
+	<li>A status code, indicating success or failure of the request. Common status codes are 200, 404, or 302</li>
+	<li>A status text. A brief, purely informational, textual description of the status code to help a human understand the HTTP message.</li>
+</ol>
+</p>
+<p>
+A typical status line looks like: HTTP/1.1 404 Not Found.<br><br>
+
+<strong>Headers</strong><br>
+HTTP headers for responses follow the same structure as any other header: a case-insensitive string followed by a colon (':') and a value whose structure depends upon the type of the header.<br>
+The whole header, including its value, presents as a single line.<br><br>
+
+Many different headers can appear in responses. These can be divided into several groups:<br><br>
+<ul>
+	<li>General headers, like Via, apply to the whole message.</li>
+	<li>Response headers, like Vary and Accept-Ranges, give additional information about the server which doesn't fit in the status line.</li>
+	<li>Representation headers like Content-Type that describe the original format of the message data and any encoding applied (only present if the message has a body).</li>
+</ul>
+<div>
+	<img src="https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages/http_response_headers3.png" alt="Header Response">
+</div>
+</p>
+<p>
+<strong>Body</strong><br>
+The last part of a response is the body.<br><br>
+Not all responses have one: responses with a status code that sufficiently answers the request without the need for corresponding payload (like 201 Created or 204 No Content) usually don't.<br>
+
+Bodies can be broadly divided into three categories:<br><br>
+<ul>
+	<li>Single-resource bodies, consisting of a single file of known length, defined by the two headers: Content-Type and Content-Length.</li>
+	<li>Single-resource bodies, consisting of a single file of unknown length, encoded by chunks with Transfer-Encoding set to chunked.</li>
+	<li>Multiple-resource bodies, consisting of a multipart body, each containing a different section of information. These are relatively rare.</li>
+</ul>
+</p>
+</p>
+
+</p>
+
+<h1 id="dynamic">Generation of dynamic web pages</h1>
+<p>
+<strong>Dynamic Web Pages</strong><br>
+A dynamic page displays different content for different users while retaining the same layout and design.<br>
+Such pages, usually written in CGI, AJAX, ASP or ASP.NET, take more time to load than simple static pages.<br>
+They’re frequently implemented to show information that changes frequently, e.g., weather updates or stock prices.<br>
+Dynamic pages usually contain application programs for different services and require server-side resources like
+databases.<br> A database allows the page creator to separate the website’s design from the content to be displayed
+to users.<br> Once they upload content into the database, it is retrieved by the website in response to a user request.<br><br>
+
+<strong>Two Types of Dynamic Web pages</strong>
+<ul style="list-style-type:none">
+	<li>Client-side Scripting:<br> A web page that changes in response to an action within it (“client-side event”) uses
+client-side scripting. These scripts generate “client-side content” on the user’s computer, rather than the
+webserver.</li>
+	<li>Server-side Scripting:<br>: A web page that changes when it’s loaded or visited, or based on what’s submitted to
+it, uses server-side scripting. When the pages are loaded, server-side content is generated. Examples include
+login pages, shopping carts and submission forms.</li>
+</ul>
+</p>
+
+<h1 id="appserver">Application Servers</h1>
+<p>
+Application servers physically or virtually sit between database servers storing application data and web servers communicating with clients.<br>
+App servers and akin middleware are the operating systems supporting an application’s development and delivery.<br>
+Whether it’s a desktop, mobile, or web app, application servers play a critical role in connecting a world of devices.<br><br>
+
+<strong>Need for Application servers</strong><br><br>
+Billions of web clients make HTTP requests every day, expecting instant access to you-name-the-app. Headspace during the morning routine, Google Docs for the extensive report, Twitter during a coffee break, no matter the application in use, it’s being pulled from an application server and delivered via a web server.
+
+Web servers are responsible for serving web clients HTTP requests with HTTP responses. Unlike app servers, the web server design is light enough to process static data requests for multiple applications (or websites) while maintaining security. Dynamic requests, often in the form of applications, require additional assistance.<br><br>
+
+Billions of web clients make HTTP requests every day, expecting instant access to you-name-the-app. Headspace during the morning routine, Google Docs for the extensive report, Twitter during a coffee break, no matter the application in use, it’s being pulled from an application server and delivered via a web server.
+
+Web servers are responsible for serving web clients HTTP requests with HTTP responses. Unlike app servers, the web server design is light enough to process static data requests for multiple applications (or websites) while maintaining security. Dynamic requests, often in the form of applications, require additional assistance.<br><br>
+
+
+<strong>Working:</strong>
+<div>
+<img src="https://www.serverwatch.com/wp-content/uploads/2021/05/Web_App_Flow-02-01-696x262.png" alt="Application server">
+</div>
+<p>
+Like most servers today, application servers contain features for security, transactions, services, clustering, diagnostics, and databases. Where application servers deviate is their ability to process servlet requests from a web server.<br><br>
+
+In the above image, we show the general flow for web application servers:<br><br>
+
+<ol>
+	<li>The client opens a browser and requests access to a website</li>
+	<li>The web server receives the HTTP request and responds with the desired webpage</li>
+	<li>The web server handles static data requests, but the client wants to use an interactive tool</li>
+	<li>As a dynamic data request, the web server transfers the request to an application server</li>
+	<li>The application server receives the HTTP request and converts it into a servlet request</li>
+	<li>The servlet reaches the database server, and the app server receives a servlet response</li>
+	<li>The app server translates the servlet response into HTTP format for client access</li>
+</ol>
+<p>
+Upon receiving a servlet request from a web server, the application server processes the request and responds to the web server via servlet response. Because application servers primarily work with business logic requests, the web server translates the servlet response and passes an HTTP response accessible to the user<br><br>
+</p>
+</p>
+
+<h1 id="websec">Web Security</h1>
+<p>
+World Wide Web is fundamentally a client/server application running over the Internet and TCP/IP intranets.<br>
+The Web presents new challenges not generally appreciated in the context of computer and network security:<br><br>
+<ul style="list-style-type:none;">
+	<li>The Internet is two way.<br>
+	Unlike traditional publishing environments, even electronic publishing systems involving Teledex, voice response, or fax-back,<br>
+	the Web is vulnerable to attacks on the Web servers over the Internet.</li>
+	<li>The Web is increasingly serving as a highly visible outlet for corporate and product information and as the platform for  transactions.<br> Reputations can be damaged.</li>
+	<li>Web content is increasingly easy to develop, the underlying software is extraordinarily complex.<br>
+	This complex software may hide many potential security flaws, that are vulnerable to a variety of security attacks. </li>
+	<li>Casual and untrained (in security matters) users are common clients for Web-based services.<br>
+	Such users are not necessarily aware of the security risks that exist and do not have the tools or knowledge to take effective countermeasures.</li>
+</ul>
+<p>
+<strong>Web Security Threats:</strong><br><br>
+One way to group these threats is in terms of passive and active attacks.<br>
+Passive attacks include eavesdropping on network traffic between browser and server and gaining access to information on a Web site that is supposed to be restricted.<br>
+Active attacks include impersonating another user, altering messages in transit between client and server, and altering information on a Web site.<br><br>
+
+Another way to classify Web security threats is in terms of the location of the threat: Web server, Web browser, and network traffic between browser and server.<br>
+Issues of server and browser security fall into the category of computer system security.
+
+<div>
+<img src="https://www.cs.csustan.edu/~john/classes/previous_semesters/CS3000_Communication_Networks/2015_02_Spring/Notes/CNAI_Figures/figure-29.1.jpeg" width="600">
+</div>
+
+</p>
+
+
+
+
+</body>
+</html>
